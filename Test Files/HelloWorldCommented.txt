@@ -1,0 +1,28 @@
+stage1				# name, start		
+72 -> slpy L3		# H into L3
+		
+101 -> slpy R4		# e into R4
+L3 + R4 -> L3		# e from R4 append onto L3
+
+108 -> R4			# add two l in this case, for fun
+R4 + 108 -> R4 
+L3 + R4 -> L3		# ll from R4 append onto L3
+
+111 -> R4			# o into R4
+L3 + R4 -> L3		# Hello is in L3 
+			
+					# let's use two new variables to look better
+87 -> slpy R6		# W into R6 
+
+R6 + R4 -> slpy L2	# W and o into L2
+
+114 -> R4			# r into R4
+108 -> R6			# l into R6
+L2 + R4 + R6 -> L2	# append rl into L2
+L2 + 100 -> L2		# append d into L2
+
+
+L3 + 32 -> L3 		# append space onto L3
+L3 + L2 -> slpy L1	# put Hello World into L1 
+					# print
+finish				# indicate done

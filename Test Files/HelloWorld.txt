@@ -1,0 +1,19 @@
+stage1
+72 -> slpy L3
+101 -> slpy R4
+L3 + R4 -> L3
+108 -> R4
+R4 + 108 -> R4 
+L3 + R4 -> L3
+111 -> R4
+L3 + R4 -> L3
+87 -> slpy R6
+R6 + R4 -> slpy L2
+114 -> R4
+108 -> R6
+L2 + R4 + R6 -> L2
+L2 + 100 -> L2
+L3 + 32 -> L3
+L3 + L2 -> slpy L1
+cut L1
+finish
