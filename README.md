@@ -18,4 +18,4 @@ learning experience than anything else. I hope you find it at least comical or i
 ## Plans
 The current plans for this are to just support simplistic loops, conditionals, integer and double math, and string
 manipulation. Outside of that I have no major plans. Currently the interpretation only supports a total of 12 unique
-variables and I don't see that part changing. I doubt anybody will ever find this truly useful, but that's okay. 
+variables and I don't see that part changing. I doubt anybody will ever find this truly useful, but that's okay.   
