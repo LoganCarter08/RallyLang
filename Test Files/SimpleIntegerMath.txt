@@ -1,0 +1,12 @@
+stage1
+sh L1
+2 -> L1
+L1 + 2 -> L1
+cut L1
+L1 - 5 -> L1
+cut L1
+unseen L1
+cut L1
+L1 + 40 -> L1
+cut L1
+finish

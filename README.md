@@ -6,9 +6,25 @@ Over time the syntax may evolve slightly, so if for some reason you find yoursel
 please check for updates after pulling the latest version. 
 
 ## Syntax
-The following will be populated with the syntax after more is defined. Right now only simple text output is 
-support in order to create a Hello World example. For now you can look at the 'Test Files/HelloWorldCommented.txt'
-for a rough idea of how things work. Again, this is subject to change.
+The following will continue to change and be added to as progression is made. Right now only simple math and
+string manipulation is supported. It is unclear how much will be added in the future, but the following table
+represents what is currently supported along with their real world representation. Check the test files for
+examples on the usage. Those are used for testing syntax as it is developed and should give an idea of how 
+things are working. 
+
+| Symbol           | Pronunciation | Rally Usage                   | Operation               |
+| ---------------- |:-------------:|:-----------------------------:|:-----------------------:|
+| L(1-6)           | Left #        | Sharpness rating of left turn |Variable                 |
+| R(1-6)           | Right #       | Sharpness rating of right turn|Variable                 |
+| ->               | Into          | Next feature is very close    |Variable Assignment      |
+| +                | Plus          | Corner sharpness lessens      |Addition                 |
+| -                | Minus         | Corner sharpness increases    |Subtraction              |
+| slpy             | Slippy        | Corner is slippery            |String Identifier        |
+| lg               | Long          | Corner length is long         |Double/Float Identifier  |
+| sh               | Short         | Corner length is short        |Integer Identifier       |
+| cut              | Cut           | Corner is safe to cut         |Print variable           |
+| unseen           | Unseen        | Corner is hidden from view    |Multiply by -1           |
+| finish           | Finish        | Stage is over                 |Program is finished      |
 
 ## Why?
 Why would I create this language with seamingly no true usage? Well, for fun of course. I thought this would 
