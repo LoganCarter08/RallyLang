@@ -12,7 +12,7 @@ represents what is currently supported along with their real world representatio
 examples on the usage. Those are used for testing syntax as it is developed and should give an idea of how 
 things are working. 
 
-| Symbol           | Pronunciation | Rally Usage                   | Operation               |
+| Symbol           | Pronunciation | Rally Usage                   | RallyLang Operation     |
 | ---------------- |:-------------:|:-----------------------------:|:-----------------------:|
 | L(1-6)           | Left #        | Sharpness rating of left turn |Variable                 |
 | R(1-6)           | Right #       | Sharpness rating of right turn|Variable                 |
@@ -25,6 +25,7 @@ things are working.
 | lg               | Long          | Corner length is long         |Double/Float Identifier  |
 | sh               | Short         | Corner length is short        |Boolean Identifier       |
 | cut              | Cut           | Corner is safe to cut         |Print variable           |
+| oc               | Off Camber    | Road is slanted poorly        |Command line input       |
 | unseen           | Unseen        | Corner is hidden from view    |Multiply by -1           |
 | finish           | Finish        | Stage is over                 |Program is finished      |
 
@@ -36,4 +37,10 @@ learning experience than anything else. I hope you find it at least comical or i
 ## Plans
 The current plans for this are to just support simplistic loops, conditionals, integer and double math, and string
 manipulation. Outside of that I have no major plans. Currently the interpretation only supports a total of 12 unique
-variables and I don't see that part changing. I doubt anybody will ever find this truly useful, but that's okay.   
+variables and I don't see that part changing. I doubt anybody will ever find this truly useful, but that's okay.  
+
+### To Do
+1. Add statements and loops
+2. Add jmp?, <, >, !, dc, keepm, and other common rally callouts we could incorporate
+3. Add boolean logic
+4. Add error handling that returns errors within RallyLang and not the underlying Python  

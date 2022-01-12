@@ -40,7 +40,8 @@ def isVar(string):
 
 def addition(left, right, currentVarType):
     if currentVarType == 1:                                            # this is an illegal method
-        return left
+        print("Boolean addition not supported")
+        exit(1)
     elif currentVarType == 3: 
         if splitLine[i - 1].isnumeric():
             left = chr(int(left))
@@ -53,7 +54,8 @@ def addition(left, right, currentVarType):
 
 def subtraction(left, right, currentVarType):
     if currentVarType == 3 or currentVarType == 1:                     # this is an illegal method
-        return left
+        print("Cannot subtract this variable type")
+        exit(1)
     elif currentVarType == 2:
         left = float(splitLine[i - 1])
         right = float(splitLine[i + 1])
@@ -61,7 +63,8 @@ def subtraction(left, right, currentVarType):
 
 def multiplication(left, right, currentVarType):
     if currentVarType == 3 or currentVarType == 1:                     # this is an illegal method
-        return left
+        print("Cannot multiple this variable type")
+        exit(1)
     elif currentVarType == 2:
         left = float(splitLine[i - 1])
         right = float(splitLine[i + 1])
@@ -69,7 +72,8 @@ def multiplication(left, right, currentVarType):
 
 def division(left, right, currentVarType):
     if currentVarType == 3 or currentVarType == 1:                     # this is an illegal method
-        return left
+        print("Cannot divide this variable type")
+        exit(1)
     elif currentVarType == 2:
         left = float(splitLine[i - 1])
         right = float(splitLine[i + 1])
@@ -78,7 +82,7 @@ def division(left, right, currentVarType):
 variables = []
 
 fileName = ""
-f = open("Test Files/SimpleIntegerMath.txt", "r")
+f = open("Test Files/SimpleMath.txt", "r")
 #f = open("Test Files/HelloWorld.txt", "r")
 
 Lines = f.read()
@@ -95,25 +99,18 @@ for line in Lines:
     while i < len(splitLine):
         if "finish" == splitLine[i]:
             exit(0)
-        elif "slpy" in splitLine[i]:   
-            variables.append(Variable(3, "", splitLine[i + 1]))
+        elif "slpy" in splitLine[i] or "lg" in splitLine[i] or "sh" in splitLine[i]:
+            if "slpy" in splitLine[i]:   
+                variables.append(Variable(3, "", splitLine[i + 1]))              
+                currentVarType = 3
+            elif "lg" in splitLine[i]:
+                variables.append(Variable(2, 0, splitLine[i + 1]))
+                currentVarType = 2
+            elif "sh" in splitLine[i]:
+                variables.append(Variable(1, True, splitLine[i + 1]))
+                currentVarType = 1
             splitLine.pop(i)
-            currentVarType = 3
             i = i - 1
-        elif "lg" in splitLine[i]:
-            variables.append(Variable(2, "", splitLine[i + 1]))
-            splitLine.pop(i)
-            currentVarType = 2
-            i = i - 1
-        elif "sh" in splitLine[i]:
-            variables.append(Variable(1, "", splitLine[i + 1]))
-            splitLine.pop(i)
-            currentVarType = 1
-            i = i - 1
-        # not within operations as this is too simplistic to need a real parse
-        elif "unseen" in splitLine[i]:                          
-            runOperations = False
-            setVarValue(splitLine[i + 1], getVarValue(splitLine[i + 1]) * -1)
         elif i > 0 and "->" in splitLine[i - 1]:
             if isVar(splitLine[i]):
                 currentVarType = getVarType(splitLine[i])
@@ -138,7 +135,7 @@ for line in Lines:
                 elif currentVarType == 1:                         # int 
                     left = int(splitLine[i - 1])
                 setVarValue(splitLine[i + 1], left)
-            if splitLine[i] == "+" or splitLine[i] == "-" or splitLine[i] == "cr" or splitLine[i] == "/":
+            elif splitLine[i] == "+" or splitLine[i] == "-" or splitLine[i] == "cr" or splitLine[i] == "/":
                 if splitLine[i] == "+":                           # +
                     splitLine[i + 1] = addition(splitLine[i - 1], splitLine[i + 1], currentVarType)                 
                 elif splitLine[i] == "-":                         # -
@@ -150,6 +147,16 @@ for line in Lines:
                 splitLine.pop(i - 1)
                 splitLine.pop(i - 1)
                 i = i - 1
+            elif "unseen" == splitLine[i]:                          
+                setVarValue(splitLine[i + 1], getVarValue(splitLine[i + 1]) * -1)
+            elif "oc" == splitLine[i]:
+                inVal = input()
+                if currentVarType == 2:
+                    inVal = float(inVal)
+                else:
+                    inVal = str(inVal)
+                setVarValue(splitLine[i + 1], inVal)
+            # inc the loop
             i = i + 1
                 
 f.close()        

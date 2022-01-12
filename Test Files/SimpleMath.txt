@@ -1,6 +1,5 @@
 stage1
-lg L1
-2 -> L1
+oc lg L1
 L1 + 2 -> L1
 cut L1
 L1 - 5 -> L1
