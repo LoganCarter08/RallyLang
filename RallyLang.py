@@ -39,29 +39,41 @@ def isVar(string):
         return False
 
 def addition(left, right, currentVarType):
-    if currentVarType == 3: 
+    if currentVarType == 1:                                            # this is an illegal method
+        return left
+    elif currentVarType == 3: 
         if splitLine[i - 1].isnumeric():
             left = chr(int(left))
         if splitLine[i + 1].isnumeric():
             right = chr(int(right))
-    elif currentVarType == 1:
-        left = int(splitLine[i - 1])
-        right = int(splitLine[i + 1])
     elif currentVarType == 2:
         left = float(splitLine[i - 1])
         right = float(splitLine[i + 1])
     return (left + right)
 
 def subtraction(left, right, currentVarType):
-    if currentVarType == 3:                     # this is an illegal method
+    if currentVarType == 3 or currentVarType == 1:                     # this is an illegal method
         return left
-    elif currentVarType == 1:
-        left = int(splitLine[i - 1])
-        right = int(splitLine[i + 1])
     elif currentVarType == 2:
         left = float(splitLine[i - 1])
         right = float(splitLine[i + 1])
     return (left - right)
+
+def multiplication(left, right, currentVarType):
+    if currentVarType == 3 or currentVarType == 1:                     # this is an illegal method
+        return left
+    elif currentVarType == 2:
+        left = float(splitLine[i - 1])
+        right = float(splitLine[i + 1])
+        return (left * right)
+
+def division(left, right, currentVarType):
+    if currentVarType == 3 or currentVarType == 1:                     # this is an illegal method
+        return left
+    elif currentVarType == 2:
+        left = float(splitLine[i - 1])
+        right = float(splitLine[i + 1])
+        return (left / right)
 
 variables = []
 
@@ -76,7 +88,7 @@ Lines = Lines.split("\n") # split the input into the commands
 for line in Lines:
     splitLine = line.split(" ")
     ###### line preprocess ############
-    currentVarType = 0 # 1 = int, 2 = double, 3 = string
+    currentVarType = 0 # 1 = bool, 2 = double, 3 = string
     leftOfInto = True
     runOperations = True
     i = 0
@@ -126,13 +138,15 @@ for line in Lines:
                 elif currentVarType == 1:                         # int 
                     left = int(splitLine[i - 1])
                 setVarValue(splitLine[i + 1], left)
-            elif splitLine[i] == "+":                             # +
-                splitLine[i + 1] = addition(splitLine[i - 1], splitLine[i + 1], currentVarType)
-                splitLine.pop(i - 1)
-                splitLine.pop(i - 1)
-                i = i - 1
-            elif splitLine[i] == "-":                             # -
-                splitLine[i + 1] = subtraction(splitLine[i - 1], splitLine[i + 1], currentVarType)
+            if splitLine[i] == "+" or splitLine[i] == "-" or splitLine[i] == "cr" or splitLine[i] == "/":
+                if splitLine[i] == "+":                           # +
+                    splitLine[i + 1] = addition(splitLine[i - 1], splitLine[i + 1], currentVarType)                 
+                elif splitLine[i] == "-":                         # -
+                    splitLine[i + 1] = subtraction(splitLine[i - 1], splitLine[i + 1], currentVarType)
+                elif splitLine[i] == "cr":
+                    splitLine[i + 1] = multiplication(splitLine[i - 1], splitLine[i + 1], currentVarType)
+                elif splitLine[i] == "/":
+                    splitLine[i + 1] = division(splitLine[i - 1], splitLine[i + 1], currentVarType)
                 splitLine.pop(i - 1)
                 splitLine.pop(i - 1)
                 i = i - 1

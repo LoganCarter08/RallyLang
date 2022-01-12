@@ -19,9 +19,11 @@ things are working.
 | ->               | Into          | Next feature is very close    |Variable Assignment      |
 | +                | Plus          | Corner sharpness lessens      |Addition                 |
 | -                | Minus         | Corner sharpness increases    |Subtraction              |
+| cr               | Crest         | Go over a small hill          |Multiplication           |
+| /                | Over          | Combine features              |Division                 |
 | slpy             | Slippy        | Corner is slippery            |String Identifier        |
 | lg               | Long          | Corner length is long         |Double/Float Identifier  |
-| sh               | Short         | Corner length is short        |Integer Identifier       |
+| sh               | Short         | Corner length is short        |Boolean Identifier       |
 | cut              | Cut           | Corner is safe to cut         |Print variable           |
 | unseen           | Unseen        | Corner is hidden from view    |Multiply by -1           |
 | finish           | Finish        | Stage is over                 |Program is finished      |

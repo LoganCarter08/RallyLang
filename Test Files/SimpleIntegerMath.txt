@@ -1,5 +1,5 @@
 stage1
-sh L1
+lg L1
 2 -> L1
 L1 + 2 -> L1
 cut L1
@@ -8,5 +8,9 @@ cut L1
 unseen L1
 cut L1
 L1 + 40 -> L1
+cut L1
+L1 cr 10 -> L1
+cut L1
+L1 / 40 -> L1
 cut L1
 finish
